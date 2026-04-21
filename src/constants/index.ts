@@ -2,7 +2,7 @@ export const navLinks = [
   {
     id: 1,
     name: "Home",
-    href: "/",
+    href: "#home",
   },
   {
     id: 2,
@@ -16,44 +16,49 @@ export const navLinks = [
   },
   {
     id: 4,
+    name: "Feedback",
+    href: "#feedback",
+  },
+  {
+    id: 5,
     name: "Contact",
     href: "#contact",
   },
 ];
 
-// Need to replace these Experiences with My Own Experiences
-export const clientReviews = [
+// Placeholder colleague feedback until final testimonials are collected.
+export const colleagueFeedbacks = [
   {
     id: 1,
-    name: "Emily Johnson",
-    position: "Marketing Director at GreenLeaf",
-    img: "assets/review1.png",
+    name: "Pranav Kumar Aggarwal",
+    position: "Software Engineer L2",
+    img: "assets/pranav1.jpg",
     review:
-      "Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.",
+      "Placeholder feedback from Pranav will go here. This card is reserved for teammate feedback around engineering ownership, collaboration, and execution quality.",
   },
   {
     id: 2,
-    name: "Mark Rogers",
-    position: "Founder of TechGear Shop",
-    img: "assets/review2.png",
+    name: "Tamojay Dey",
+    position: "Software Engineer L2 - UI",
+    img: "assets/tamojay.jpg",
     review:
-      "Adrian’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional! Fantastic work.",
+      "Placeholder feedback from Tamojay will go here. This space is reserved for input on frontend collaboration, product thinking, and day-to-day teamwork.",
   },
   {
     id: 3,
-    name: "John Dohsas",
-    position: "Project Manager at UrbanTech ",
-    img: "assets/review3.png",
+    name: "Akash V Kulkarni",
+    position: "Senior Software Engineer",
+    img: "assets/akash.jpg",
     review:
-      "I can’t say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
+      "Placeholder feedback from Akash will go here. This card will later capture perspective on system design, technical depth, and delivery across distributed services.",
   },
   {
     id: 4,
-    name: "Ether Smith",
-    position: "CEO of BrightStar Enterprises",
-    img: "assets/review4.png",
+    name: "Shubham Rastogi",
+    position: "Manager, Software Development Engineering",
+    img: "assets/shubham1.jpg",
     review:
-      "Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend backend dev are top-notch.",
+      "Placeholder feedback from Shubham will go here. This section is reserved for leadership feedback on ownership, impact, and growth within the team.",
   },
 ];
 
@@ -261,70 +266,115 @@ export const calculateSizes = (
   isSmall: boolean,
   isMobile: boolean,
   isTablet: boolean,
+  isLargeDesktop: boolean,
 ): calculateSizesType => {
   return {
-    deskScale: isSmall ? 0.05 : isMobile ? 0.06 : 0.065,
-    deskPosition: isMobile ? [0.5, -4.5, 0] : [0.25, -5.5, 0],
+    deskScale: isSmall ? 0.05 : isMobile ? 0.06 : isLargeDesktop ? 0.06 : 0.065,
+    deskPosition: isMobile
+      ? [0.5, -4.5, 0]
+      : isTablet
+        ? [0.25, -5, 0]
+        : isLargeDesktop
+          ? [0.25, -6.2, 0]
+          : [0.25, -5.5, 0],
     cubePosition: isSmall
       ? [4, -5, 0]
       : isMobile
         ? [5, -5, 0]
         : isTablet
           ? [5, -5, 0]
-          : [9, -5.5, 0],
+          : isLargeDesktop
+            ? [10, -6.2, 0]
+            : [9, -5.5, 0],
     reactLogoPosition: isSmall
       ? [3, 4, 0]
       : isMobile
         ? [5, 4, 0]
         : isTablet
           ? [5, 4, 0]
-          : [12, 3, 0],
+          : isLargeDesktop
+            ? [13, 1.5, 0]
+            : [12, 3, 0],
     ringPosition: isSmall
       ? [-5, 7, 0]
       : isMobile
         ? [-10, 10, 0]
         : isTablet
           ? [-12, 10, 0]
-          : [-24, 10, 0],
+          : isLargeDesktop
+            ? [-24, 10, 0]
+            : [-24, 10, 0],
     targetPosition: isSmall
       ? [-5, -10, -10]
       : isMobile
         ? [-9, -10, -10]
         : isTablet
           ? [-11, -7, -10]
-          : [-13, -11, -10],
+          : isLargeDesktop
+            ? [-13, -10, -10]
+            : [-13, -11, -10],
   };
 };
 
 export const workExperiences = [
   {
     id: 1,
-    name: "Framer",
-    pos: "Lead Web Developer",
-    duration: "2022 - Present",
-    title:
-      "Framer serves as my go-to tool for creating interactive prototypes. I use it to bring designs to  life, allowing stakeholders to experience the user flow and interactions before development.",
-    icon: "/assets/framer.svg",
-    animation: "victory",
-  },
-  {
-    id: 2,
-    name: "Figma",
-    pos: "Web Developer",
-    duration: "2020 - 2022",
-    title:
-      "Figma is my collaborative design platform of choice. I utilize it to work seamlessly with team members and clients, facilitating real-time feedback and design iterations. Its cloud-based.",
-    icon: "/assets/figma.svg",
-    animation: "clapping",
-  },
-  {
-    id: 3,
-    name: "Notion",
-    pos: "Junior Web Developer",
-    duration: "2019 - 2020",
-    title:
-      "Notion helps me keep my projects organized. I use it for project management, task tracking, and as a central hub for documentation, ensuring that everything from design notes to.",
-    icon: "/assets/notion.svg",
-    animation: "salute",
+    company: "Thomson Reuters",
+    totalDuration: "2 yrs 3 mos",
+    location: "Bengaluru, Karnataka, India",
+    icon: "/assets/trlogo.png",
+    roles: [
+      {
+        id: 1,
+        title: "Software Engineer",
+        employmentType: "Full-time",
+        duration: "May 2025 - Present",
+        tenure: "1 yr",
+        workMode: "Hybrid",
+        summary:
+          "Leading feature ownership, real-time product workflows, and production reliability across distributed CPA platform services.",
+        highlights: [
+          "Designed a centralized event classification system to split internal vs client events across 124 tracked events.",
+          "Modified 18+ microservices and database schemas, and delivered a historical event reclassification migration with zero QA, staging, or master bugs.",
+          "Built a real-time CPA dashboard with SignalR synchronization, tab-based filtering, pagination, sorting, and contextual HTML-to-PDF generation.",
+          "Improved production reliability for 50k+ daily usage by fixing critical blob deletion issues, restoring 10k+ blobs in under 10 minutes, and migrating 33 services to Datadog.",
+          "Served as a required PR reviewer across 3 product teams, mentored interns to full-time placement, and conducted KT sessions for new engineers.",
+        ],
+        animation: "victory",
+      },
+      {
+        id: 2,
+        title: "Associate Software Engineer",
+        employmentType: "Full-time",
+        duration: "Sep 2024 - May 2025",
+        tenure: "9 mos",
+        workMode: "On-site",
+        summary:
+          "Built the foundations for Thomson Reuters' Entity Gather expansion and scaled batch document processing for enterprise CPA workflows.",
+        highlights: [
+          "Acted as a founding engineer for the multi-quarter Entity Gather initiative, expanding document gathering beyond organizer-based flows.",
+          "Designed a CSV-driven extraction model with configurable column mapping and built BatchExtractor and Replication Service microservices from scratch.",
+          "Implemented Azure Service Bus, Blob Storage, Key Vault, AKS deployment workflows, and Saga-based distributed batch processing.",
+          "Delivered a stable production batch architecture handling 200 gathers × 3000 documents with 6M+ database inserts, plus 8-10 new APIs, schema changes, and secure SAS uploads.",
+        ],
+        animation: "clapping",
+      },
+      {
+        id: 3,
+        title: "Graduate Engineering Trainee",
+        employmentType: "Internship",
+        duration: "Feb 2024 - Sep 2024",
+        tenure: "8 mos",
+        workMode: "On-site",
+        summary:
+          "Started with frontend, security, and platform quality improvements across multiple Thomson Reuters products.",
+        highlights: [
+          "Resolved npm vulnerabilities across 5 major products using Snyk and implemented dependency override strategies for nested package issues.",
+          "Built a React + Jest unit testing proof of concept that was adopted across teams and improved frontend engineering confidence.",
+          "Contributed to audit logging migration from SQL triggers to Cosmos DB microservices, fixed production UI bugs, and improved debugging reliability.",
+        ],
+        animation: "salute",
+      },
+    ],
   },
 ];

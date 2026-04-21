@@ -16,11 +16,12 @@ const Hero = () => {
   const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
+  const isLargeDesktop = useMediaQuery({ minWidth: 1440 });
 
-  const sizes = calculateSizes(isSmall, isMobile, isTablet);
+  const sizes = calculateSizes(isSmall, isMobile, isTablet, isLargeDesktop);
 
   return (
-    <section className="min-h-screen w-full flex flex-col relative">
+    <section className="min-h-screen w-full flex flex-col relative" id="home">
       <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
         <p className="sm:text-3xl text-2xl font-medium text-white text-center font-generalsans">
           Hi, I am Amitesh <span className="waving-hand">👋</span>
@@ -37,9 +38,6 @@ const Hero = () => {
             <PerspectiveCamera makeDefault position={[0, 0, 20]} />
             <HeroCamera isMobile={isMobile}>
               <HackerRoom
-                //   scale={0.05}
-                //   position={[0, 0, 0]}
-                //   rotation={[0, 280, 0]}
                 position={sizes.deskPosition}
                 rotation={[0, -Math.PI, 0]}
                 scale={sizes.deskScale}

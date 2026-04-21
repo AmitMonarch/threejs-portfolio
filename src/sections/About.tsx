@@ -15,6 +15,14 @@ const About = () => {
     }, 2000);
   };
 
+  const handleContactNavigation = () => {
+    const contactSection = document.getElementById("contact");
+
+    if (!contactSection) return;
+
+    contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <section className="c-space my-20" id="about">
       <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
@@ -39,11 +47,13 @@ const About = () => {
 
         <div className="col-span-1 xl:row-span-3">
           <div className="grid-container">
-            <img
-              src="assets/grid2.png" // Need to replace this Image with My Own Tech Stack Image
-              alt="grid-2"
-              className="w-full sm:h-[276px] h-fit object-contain"
-            />
+            <div className="w-full sm:h-[276px] h-[220px] rounded-2xl flex items-center justify-center p-6">
+              <img
+                src="assets/techstack.png"
+                alt="Tech stack"
+                className="w-full h-full object-contain object-center"
+              />
+            </div>
 
             <div>
               <p className="grid-headtext">Tech Stack</p>
@@ -86,7 +96,12 @@ const About = () => {
                 I&apos;m based in Bangalore, India and open to remote work
                 worldwide.
               </p>
-              <Button name="Contact Me" isBeam containerClass="w-full mt-10" />
+              <Button
+                name="Contact Me"
+                isBeam
+                containerClass="w-full mt-10"
+                onClick={handleContactNavigation}
+              />
             </div>
           </div>
         </div>
