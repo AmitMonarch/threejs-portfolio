@@ -5,11 +5,13 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 interface RingsProps {
   position?: [number, number, number];
+  scale?: number;
 }
 
 const Rings = (props: RingsProps) => {
   const refList = useRef<any>([]);
   const [position, setPosition] = useState<[number, number, number]>([0, 0, 0]);
+  const ringScale = props.scale || 0.5;
 
   const getRef = useCallback((mesh: any) => {
     if (mesh && !refList.current.includes(mesh)) {
@@ -57,7 +59,7 @@ const Rings = (props: RingsProps) => {
 
   return (
     <Center>
-      <group scale={0.5}>
+      <group scale={ringScale}>
         {Array.from({ length: 4 }, (_, index) => (
           <mesh key={index} ref={getRef}>
             <torusGeometry args={[(index + 1) * 0.5, 0.1]}></torusGeometry>

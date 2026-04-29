@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
 import { Float, useGLTF, useTexture } from "@react-three/drei";
 
-const Cube = ({ ...props }) => {
+const Cube = ({ scale = 0.74, ...props }) => {
   const { nodes } = useGLTF("models/cube.glb") as {
     nodes: Record<string, any>;
     materials: Record<string, any>;
@@ -35,7 +35,7 @@ const Cube = ({ ...props }) => {
       <group
         position={[9, -4, 0]}
         rotation={[2.6, 0.8, -1.8]}
-        scale={0.74}
+        scale={scale}
         dispose={null}
         {...props}
       >

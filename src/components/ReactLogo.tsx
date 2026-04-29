@@ -2,9 +2,10 @@ import { Float, useGLTF } from "@react-three/drei";
 
 interface ReactLogoProps {
   position: [number, number, number];
+  scale?: number;
 }
 
-const ReactLogo = (props: ReactLogoProps) => {
+const ReactLogo = ({ scale = 0.4, ...props }: ReactLogoProps) => {
   const { nodes, materials } = useGLTF("/models/react.glb") as {
     nodes: Record<string, any>;
     materials: Record<string, any>;
@@ -12,7 +13,7 @@ const ReactLogo = (props: ReactLogoProps) => {
 
   return (
     <Float floatIntensity={1}>
-      <group position={[8, 8, 0]} scale={0.4} dispose={null} {...props}>
+      <group scale={scale} dispose={null} {...props}>
         <mesh
           geometry={nodes["React-Logo_Material002_0"].geometry}
           material={materials["Material.002"]}

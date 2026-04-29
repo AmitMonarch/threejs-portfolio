@@ -1,6 +1,6 @@
 import { Float, useGLTF } from "@react-three/drei";
 
-const Target = (props: any) => {
+const Target = ({ scale = 1, ...props }: any) => {
   const { nodes, materials } = useGLTF("/models/dart_board.glb") as {
     nodes: Record<string, any>;
     materials: Record<string, any>;
@@ -8,7 +8,7 @@ const Target = (props: any) => {
 
   return (
     <Float floatIntensity={1}>
-      <group {...props} dispose={null}>
+      <group {...props} dispose={null} scale={scale}>
         <group scale={0.01}>
           <mesh
             castShadow

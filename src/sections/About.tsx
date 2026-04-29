@@ -35,7 +35,7 @@ const About = () => {
             />
 
             <div>
-              <p className="grid-headtext">Hi, Ienm Amitesh Kumar</p>
+              <p className="grid-headtext">Hi, I&apos;m Amitesh Kumar</p>
               <p className="grid-subtext">
                 With 3 years of experience, I have honed my skills in both
                 frontend and backend dev, creating dynamic and responsive
@@ -72,7 +72,6 @@ const About = () => {
                 height={326}
                 width={326}
                 backgroundColor="rgba(0, 0, 0, 0)"
-                // backgroundImageOpacity={0.5}
                 showAtmosphere
                 showGraticules
                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
