@@ -26,7 +26,6 @@ export const navLinks = [
   },
 ];
 
-// Placeholder colleague feedback until final testimonials are collected.
 export const colleagueFeedbacks = [
   {
     id: 1,
@@ -58,11 +57,10 @@ export const colleagueFeedbacks = [
     position: "Manager, Software Development Engineering",
     img: "assets/shubham1.jpg",
     review:
-      "Placeholder feedback from Shubham will go here. This section is reserved for leadership feedback on ownership, impact, and growth within the team.",
+      "Amitesh shows strong full‑stack expertise, moving seamlessly from backend architecture to polished frontend delivery. He takes clear ownership by aligning early on requirements, guiding technical decisions, and supporting teammates when needed. His effective use of AI tools and collaborative approach consistently improve team efficiency. Amitesh leads by example through quality, accountability, and reliability, making him a trusted contributor and an emerging technical leader.",
   },
 ];
 
-// Need to replace these Projects with My Own Projects
 export const myProjects = [
   {
     title: "Apple Website Clone",
